@@ -8,6 +8,7 @@
 
 #include "Disparity.h"
 #include "Tracking.h"
+#include "Features.h"
 
 Tracking T;
 
@@ -35,9 +36,9 @@ static void CallBackFunc(int event, int x, int y, int flags, void* userdata)
 
 int main()
 {
-    cv::namedWindow("input");
+    //cv::namedWindow("input");
     //------------------ DISPARITE ----------------------//
-    /*cv::Mat im1 = cv::imread("../resources/image1.jpg",1);
+/*    cv::Mat im1 = cv::imread("../resources/image1.jpg",1);
     cv::Mat im2 = cv::imread("../resources/image2_bis.jpg",1);
 
     cv::resize(im2,im2, im1.size());
@@ -50,14 +51,26 @@ int main()
     d.displayMatching(im1, im2, pA, pB);
     cv::Mat out1, out2;
     d.rectify(im1, im2,pA, pB, &out1, &out2);
-    d.computeDisparity(out1, out2);*/
-
+    d.computeDisparity(out1, out2);
+*/
     //------------------ TRACKING ----------------------//
-
+/*
     cv::setMouseCallback("input", CallBackFunc);
 
-    T.video("../resources/wallBounce.webm");
-    //T.video();
+    //T.video("../resources/wallBounce.webm");
+    T.video();
+*/
+
+    //------------------ FEATURES ----------------------//
+
+    cv::VideoCapture vid("../resources/tpfeatures_set1/set1/video.mp4");
+    cv::Mat naruto = cv::imread("../resources/tpfeatures_set1/set1/naruto.jpg",1);
+
+    std::vector<cv::Mat> vec;
+    vec.push_back(naruto);
+
+    Features f(&vid, &vec);
+    f.show();
 
     std::cout << "Close Project" << std::endl;
 }
