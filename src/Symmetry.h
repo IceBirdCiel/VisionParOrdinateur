@@ -3,19 +3,16 @@
 //
 
 #pragma once
-#include <iostream>
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
 
-using namespace opencv;
+#include <opencv2/opencv.hpp>
+#include <vector>
+
+
 
 class Symmetry {
-    Symmetry(Mat imO, Mat imS);
-    match(Mat imO, Mat imS);
 
-private:
-    Mat imO;
-    Mat imS;
+public:
+    Symmetry(){}
+
+    void isSymmetric(cv::Mat im);
 };

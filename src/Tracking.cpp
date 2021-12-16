@@ -105,11 +105,17 @@ void Tracking::updateROI(){
     br = cv::Point2f (0,999);
 
     for(cv::Point2f p : nextPoints){
-        if((p.x < tl.x) && (p.y > tl.y)){
-            tl = p;
+        if(p.x < tl.x){
+            tl.x = p.x;
         }
-        if((p.x > br.x) && (p.y < br.y)){
-            br = p;
+        if(p.x > br.x){
+            br.x = p.x;
+        }
+        if(p.y > tl.y){
+            tl.y = p.y;
+        }
+        if(p.y < br.y){
+            br.y = p.y;
         }
     }
 

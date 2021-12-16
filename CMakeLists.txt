@@ -7,7 +7,7 @@ cmake_policy(SET CMP0091 NEW)
 
 project(Projet_OpenCV)
 
-add_executable(Projet_OpenCV src/Main.cpp src/Disparity.cpp src/Tracking.cpp src/Features.cpp)
+add_executable(Projet_OpenCV src/Main.cpp src/Disparity.cpp src/Tracking.cpp src/Features.cpp src/Symmetry.cpp)
 
 set_property(TARGET Projet_OpenCV PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
